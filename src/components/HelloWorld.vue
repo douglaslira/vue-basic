@@ -29,35 +29,27 @@
 
 <script>
 import {
-    mapGetters,
-    mapActions
+  mapGetters,
+  mapActions
 } from 'vuex'
 
 export default {
-    name: 'HelloWorld',
-    computed: mapGetters('User', [{
-        users: 'allUsers',
-        messages: 'messages'
-    }]),
-    watch: {
-        users: {
-            handler(user) {
-                console.log(user);
-            },
-            deep: true
-        }
-    },
-    methods: mapActions({
-        'destroy': 'User/destroy'
-    }),
-    created() {
-        this.$store.dispatch('User/getAllUsers', null, {
-            root: true
-        })
-    },
-    props: {
-        msg: String
-    }
+  name: 'HelloWorld',
+  computed: mapGetters('User', {
+    users: 'allUsers',
+    messages: 'messages'
+  }),
+  methods: mapActions({
+    destroy: 'User/destroy'
+  }),
+  created () {
+    this.$store.dispatch('User/getAllUsers', null, {
+      root: true
+    })
+  },
+  props: {
+    msg: String
+  }
 }
 </script>
 
