@@ -13,7 +13,6 @@ export default new Vuex.Store({
   },
   actions: {
     clearAll ({ commit }) {
-      // resetting state of the modules
       Object.keys(modules).forEach(moduleName => {
         commit(`${moduleName}/RESET`)
       })
@@ -23,5 +22,5 @@ export default new Vuex.Store({
     ...modules
   },
   strict: debug,
-  plugins: debug ? [createLogger()] : [] // set logger only for development
+  plugins: debug ? [createLogger()] : []
 })
